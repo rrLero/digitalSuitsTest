@@ -1,0 +1,53 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "react",
+        "target": "ESNext",
+        "types": [
+            "react/next",
+            "react-dom/next"
+        ],
+        "paths": {
+            "rest": [
+                "src/app/rest"
+            ],
+            "rest/*": [
+                "src/app/rest/*"
+            ],
+            "locales": [
+                "src/app/locales"
+            ],
+            "locales/*": [
+                "src/app/locales/*"
+            ],
+            "openapi": [
+                "generated-sources/openapi"
+            ],
+            "openapi/*": [
+                "generated-sources/openapi/*"
+            ],
+            "types/*": [
+                "src/types/*"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}

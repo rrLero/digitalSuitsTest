@@ -8,7 +8,12 @@ export class DbRepository {
     }
 
     saveCsvData(list: CsvDto[]): void {
-        this.db = [...this.db, ...list];
+        this.db = Object.values([...this.db, ...list].reduce((prev, cur) => {
+            return {
+                ...prev,
+                [cur.donor_id]: cur
+            }
+        }, {}));
     }
 
     getAllCsvData(): CsvDto[] {

@@ -7,12 +7,13 @@ import {
 } from '@nestjs/common';
 import { ApiFile } from './api-file.decorator';
 import * as csv from 'csv-parser';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { fileFilter } from './file-filter';
 import { CsvApiService } from './csv-api.service';
 import { CsvDto } from './dto/csv.dto';
 import { DbService } from '../db/db.service';
 import { MailService } from '../mail/mail.service';
+import { EmailDataDto } from './dto/emailData.dto';
 
 @ApiTags('CsvApi')
 @Controller('csv-api')
@@ -27,7 +28,8 @@ export class CsvApiController {
     }
 
     @Post('/upload')
-    @ApiFile('avatar', true, { fileFilter: fileFilter('csv') })
+    @ApiConsumes('multipart/form-data')
+    @ApiFile('file', true, { fileFilter: fileFilter('csv') })
     async uploadFile(
         @UploadedFile() file: Express.Multer.File,
     ): Promise<CsvDto[]> {
@@ -47,4 +49,8 @@ export class CsvApiController {
         return this.dbService.getAllData();
     }
 
+    @Get('/csv-data/info')
+    async getCsvDataInfo(): Promise<EmailDataDto> {
+        return this.csvApiService.createDataForEmail(this.dbService.getAllData());
+    }
 }

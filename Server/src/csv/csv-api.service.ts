@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import { CsvDto } from './dto/csv.dto';
 import * as csv from 'csv-parser';
-import { Readable } from 'stream';
 import { EmailDataDto } from './dto/emailData.dto';
 
 @Injectable()
