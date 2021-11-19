@@ -2,8 +2,8 @@ import {
     Controller,
     Get,
     Logger,
-    Post, Req,
-    UploadedFile, UseInterceptors
+    Post,
+    UploadedFile
 } from '@nestjs/common';
 import { ApiFile } from './api-file.decorator';
 import * as csv from 'csv-parser';
@@ -14,6 +14,7 @@ import { CsvDto } from './dto/csv.dto';
 import { DbService } from '../db/db.service';
 import { MailService } from '../mail/mail.service';
 import { EmailDataDto } from './dto/emailData.dto';
+import { EmailToSend } from '../emailToSend';
 
 @ApiTags('CsvApi')
 @Controller('csv-api')
@@ -38,7 +39,7 @@ export class CsvApiController {
         this.dbService.saveCsvData(data);
         const dataForEmail = this.csvApiService.createDataForEmail(data);
         await this.mailService.sendUserConfirmation(
-            'roman.levchenko1981@gmail.com',
+            EmailToSend,
             dataForEmail
         );
         return data;
