@@ -9,7 +9,6 @@
     "node": "12.18.3"
   },
   "scripts": {
-    "generate:api-client": "openapi-generator generate -i http://127.0.0.1:3000/api-json -g typescript-fetch -o generated-sources/openapi --additional-properties=ngVersion=6.1.7,npmName=restClient,supportsES6=true,npmVersion=6.9.0,withInterfaces=true",
     "npm-install": "npm i",
     "prebuild": "rimraf dist",
     "build": "nest build",
