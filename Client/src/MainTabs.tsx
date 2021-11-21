@@ -5,13 +5,13 @@ import Tab from '@material-ui/core/Tab';
 import { TabValues } from './constants';
 
 type Props = {
-    value: number;
-    setValue: (tab: number) => void;
+    value: TabValues;
+    setValue: (tab: TabValues) => void;
 }
 
 const MainTabs: React.FC<Props> = ({ value, setValue }) => {
 
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: TabValues) => {
         setValue(newValue);
     };
     return (

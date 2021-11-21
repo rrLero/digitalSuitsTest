@@ -1,5 +1,5 @@
 export enum TabValues {
-    PreviewAll,
-    Upload,
-    Info,
+    PreviewAll = 'PreviewAll',
+    Upload = 'Upload',
+    Info = 'Info',
 }

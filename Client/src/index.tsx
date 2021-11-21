@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Router } from 'react-router';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-// import { createHashHistory } from 'history';
 import App from './App';
 import { store } from './store/store';
 
-// const history = createHashHistory();
 const container = document.getElementById('root');
 
 if (container) {
     const root = ReactDOM.createRoot(container);
     root.render(
         <Provider store={store}>
-            <App />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<App />}/>
+                    <Route path=":tab" element={<App />}/>
+                </Routes>
+            </BrowserRouter>
         </Provider>,
     );
 }
