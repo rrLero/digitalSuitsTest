@@ -1,5 +1,5 @@
 server:
-  origin: ''
+  origin: 'http://localhost:3003'
 
 db:
   host: ''

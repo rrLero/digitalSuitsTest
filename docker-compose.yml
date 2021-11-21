@@ -1,0 +1,14 @@
+
+version: "3"
+
+services:
+  server:
+    build: Server/
+    ports:
+      - 3000:3000
+  client:
+    build: Client/
+    depends_on:
+      - server
+    ports:
+      - 3003:3003

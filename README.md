@@ -19,3 +19,7 @@ Server can:
 
 Client uses code generation from ApiSwagger, also uses RTK for fetching data.
 Logic and views very simple
+
+#Use Docker to Start App
+1. docker-compose build
+2. docker-compose up
