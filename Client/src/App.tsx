@@ -10,9 +10,13 @@ import { Box } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const App: React.FC = () => {
     const [value, setValue] = React.useState(2);
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
     return (
         <Box>
@@ -23,8 +27,10 @@ const App: React.FC = () => {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Box marginTop={8}>
+            <Box position="fixed" top={matches ? 60 : 56} width="100%" zIndex={1}>
                 <MainTabs value={value} setValue={setValue} />
+            </Box>
+            <Box marginTop={14}>
                 {value === TabValues.PreviewAll && (
                     <Preview />
                 )}
