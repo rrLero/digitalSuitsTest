@@ -15,6 +15,7 @@ Server can:
 1. cd Client
 2. npm i
 3. npn run start-dev-server-local
+4. Test CSV in root folder
 
 Client uses code generation from ApiSwagger, also uses RTK for fetching data.
 Logic and views very simple
